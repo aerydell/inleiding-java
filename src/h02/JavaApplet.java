@@ -1,5 +1,6 @@
-/*
+package h02;
 
+/*
 @(#)Show.java 1.0 03/02/26
 
 *
@@ -18,11 +19,11 @@ import java.applet.*;
 public class JavaApplet extends Applet {
     //een (lege) methode die de Applet initialiseert
     public void init() {
-        setBackground(new Color(255, 248, 220));
+        setBackground(Color.blue);
     }
     //een methode die de inhoud van het scherm tekent
     public void paint(Graphics g) {
-        g.setColor(new Color(128, 0, 0));
-        g.drawString("Mijn eerste applet!", 50, 60 );
+        g.setColor(Color.yellow);
+        g.drawString("Steven Klijnsma", 50, 60 );
     }
 }
