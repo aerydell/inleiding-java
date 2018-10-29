@@ -25,6 +25,6 @@ public class Opdracht2Part2 extends Applet {
         g.setColor(Color.blue);
         g.drawString("Steven", 50, 60 );
         g.setColor(Color.red);
-        g.drawString("Klijnsma", 75, 60);
+        g.drawString("Klijnsma", 50, 75);
     }
 }
