@@ -9,8 +9,8 @@ public class Opdracht1 extends Applet {
     }
 
     public void paint(Graphics g) {
-        g.drawLine(20,20,120,20);
-        g.drawLine(20,20,70,105);
-        g.drawLine(120,20,70,105);
+        g.drawLine(20,105,120,105);
+        g.drawLine(20,105,70,20);
+        g.drawLine(120,105,70,20);
     }
 }
