@@ -10,6 +10,6 @@ public class Opdracht5 extends Applet {
     public void paint(Graphics g)   {
         setBackground(Color.blue);
         g.setColor(Color.yellow);
-        g.fillArc(20,20,200,75,0,360);
+        g.fillArc(20,20,200,140,0,400);
     }
 }
