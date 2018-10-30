@@ -3,7 +3,7 @@ package h04;
 import java.awt.*;
         import java.applet.*;
 
-public class Opdracht4Deel1 extends Applet {
+public class Opdracht1 extends Applet {
 
     public void init() {
     }
