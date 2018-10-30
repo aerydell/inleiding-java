@@ -26,8 +26,8 @@ public class Opdracht4 extends Applet {
                 g.drawString("80",20,120);
                 g.drawString("100",13,100);
                 g.drawString("120",13,80);
-                g.drawString("120",13,60);
-                g.drawString("140",13,40);
+                g.drawString("140",13,60);
+                g.drawString("160",13,40);
                 g.setColor(Color.red);
                 g.fillRect(60,160,20,40);
                 g.fillRect(20,230,10,10);
