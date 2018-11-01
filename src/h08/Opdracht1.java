@@ -5,8 +5,8 @@ import java.applet.*;
 import java.awt.event.*;
 
 public class Opdracht1 extends Applet {
-    TextField tekstvak;
     String schermtekst;
+    TextField tekstvak;
     Button knop;
     Button reset;
 
