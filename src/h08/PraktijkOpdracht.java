@@ -20,8 +20,6 @@ public class PraktijkOpdracht extends Applet {
         min = new Button("-");
         Divide = new Button("/");
         multiply = new Button("*");
-//        tekstvak1.addActionListener( new Tekstvak1Listener() );
-//        tekstvak2.addActionListener(new Tekstvak2Listener() );
         PlusListener pl = new PlusListener();
         MinListener ml = new MinListener();
         DivideListener dl = new DivideListener();
