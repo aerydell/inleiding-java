@@ -37,13 +37,21 @@ public class Opdracht5 extends Applet{
         g.drawString("cijfer 10: " + cijferj,73,240);
         g.drawString("gemiddelde: " + gemiddelde,50,260);
         g.drawLine(50,245,150,245);
+        g.drawString(tekst, 50, 280);
     }
 
     class KnopListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             gemiddelde = (cijfera + cijferb + cijferc + cijferd + cijfere + cijferf + cijferg + cijferh + cijferi + cijferj)/10;
-        repaint();
+        if(gemiddelde>=5.5) {
+            tekst = "Gefeliciteerd u bent geslaagd :D";
+        }
+        else {
+            tekst = "Helaas uw puntentotaal is niet hoog genoeg 3:<";
+        }
+
+            repaint();
         }
     }
 
