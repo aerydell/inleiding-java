@@ -4,14 +4,15 @@ import java.awt.*;
 import java.applet.*;
 import java.awt.event.*;
 
-public class PraktijkOpdracht extends Applet {
+public class PraktijkOpdracht1 extends Applet {
     TextField tekstvak;
     Button knop;
     int teller, som;
     int x = 20;
+    int y = 40;
 
     public void init(){
-        tekstvak = new TextField("", 1);
+        tekstvak = new TextField("", 5);
         tekstvak.addActionListener(new TekstvakListener());
         knop = new Button ("OK");
         KnopListener kl = new KnopListener();
@@ -22,17 +23,9 @@ public class PraktijkOpdracht extends Applet {
 
     public void paint(Graphics g){
         while(teller<11) {
-            g.drawString(teller + "x" + som + "=" + som*teller, x,60);
-            g.drawString(teller + "x" + som + "=" + som*teller,x,80);
-            g.drawString(teller + "x" + som + "=" + som*teller, x,100);
-            g.drawString(teller + "x" + som + "=" + som*teller, x,120);
-            g.drawString(teller + "x" + som + "=" + som*teller, x,140);
-            g.drawString(teller + "x" + som + "=" + som*teller, x,160);
-            g.drawString(teller + "x" + som + "=" + som*teller, x,180);
-            g.drawString(teller + "x" + som + "=" + som*teller, x,200);
-            g.drawString(teller + "x" + som + "=" + som*teller, x,220);
-            g.drawString(teller + "x" + som + "=" + som*teller, x,240);
-
+            y+= 20;
+            g.drawString(teller + "x" + som + "=" + som*teller, x,y);
+            teller++;
         }
     }
 
