@@ -21,7 +21,7 @@ public class Opdracht1 extends Applet {
         }
         totaal = 10 + 20 + 30 + 40 + 50 + 60 + 70 + 80 + 90 + 100;
 
-        g.drawString("het gemmiddelde is: " + totaal/getallen.length, 50,220);
+        g.drawString("het gemiddelde is: " + totaal/getallen.length, 50,220);
     }
 
 
