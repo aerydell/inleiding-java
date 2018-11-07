@@ -6,7 +6,6 @@ import java.awt.event.*;
 
 public class Opdracht2 extends Applet{
 
-    String schermtekst;
     Button man;
     Button vrouw;
     Button jongen;
