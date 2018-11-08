@@ -5,16 +5,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PraktijkOpdracht extends Applet {
-    int jan = 1234567;
-    int jennie = 1234567;
-    int sjon = 1234567;
-    int piet = 1234567;
-    int klaas = 1234567;
-    int achmed = 1234567;
-    int tim = 1234567;
-    int kevin = 1234567;
-    int sander = 1234567;
-    int pieter = 1234567;
+    int steven = 123456789;
+    int jennie = 123456789;
+    int sjon = 123456789;
+    int piet = 123456789;
+    int klaas = 123456789;
+    int achmed = 123456789;
+    int tim = 123456789;
+    int kevin = 123456789;
+    int sander = 123456789;
+    int pieter = 123456789;
     Button knop;
     TextField tekstvak;
     String input, tekst;
@@ -36,8 +36,8 @@ public class PraktijkOpdracht extends Applet {
         public void actionPerformed(ActionEvent e) {
             input = tekstvak.getText().toLowerCase();
             switch (input){
-                case "jan":
-                    tekst = "Jan's nummer is " + jan;
+                case "steven":
+                    tekst = "steven's nummer is " + steven;
                     break;
                 case "jennie":
                     tekst = "Jennie's nummer is " + jennie;
