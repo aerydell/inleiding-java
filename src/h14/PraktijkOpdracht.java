@@ -2,8 +2,8 @@ package h14;
 
 import java.awt.*;
 import java.applet.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
+import java.net.URL;
 
 public class PraktijkOpdracht extends Applet {
     int taartPunten, gegeten, computer;
@@ -11,12 +11,17 @@ public class PraktijkOpdracht extends Applet {
     TextField tekstvak;
     Button knop, reset;
     double random;
+    private URL pad;
+    private AudioClip scream, applause;
 
     public void init() {
         barf = "";
         random = Math.random();
         taartPunten = 23;
         blergh = "there are still " + taartPunten + " pieced left";
+        pad = KnopListener.class.getResource("/h14/");
+        scream = getAudioClip(pad, "scream1.wav");
+        applause = getAudioClip(pad, "applause.wav");
         tekstvak = new TextField(10);
         knop = new Button("Enter");
         reset = new Button("Reset");
@@ -46,9 +51,11 @@ public class PraktijkOpdracht extends Applet {
             }
             if (taartPunten <= 0) {
                 blergh = "pffffff, you can't even beat a computer...";
+                scream.play();
             }
             if (taartPunten == 1) {
                 blergh = "Congratulations, you have beaten a computer.....";
+                applause.play();
             }
             if (taartPunten == 2 || taartPunten == 6 || taartPunten == 10 || taartPunten == 14 || taartPunten == 18 || taartPunten == 22) {
                 computer = 1;
@@ -104,7 +111,7 @@ public class PraktijkOpdracht extends Applet {
             taartPunten = 23;
             barf = "";
             blergh = "there are still " + taartPunten + " pieced left";
-            repaint();1
+            repaint();
         }
     }
 }
