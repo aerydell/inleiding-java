@@ -13,6 +13,7 @@ public class PraktijkOpdracht extends Applet {
     double random;
     private URL pad;
     private AudioClip scream, applause;
+    private Image afbeelding;
 
     public void init() {
         barf = "";
@@ -22,6 +23,7 @@ public class PraktijkOpdracht extends Applet {
         pad = KnopListener.class.getResource("/h14/");
         scream = getAudioClip(pad, "scream1.wav");
         applause = getAudioClip(pad, "applause.wav");
+        afbeelding = getImage(pad, "taartpuntje.gif");
         tekstvak = new TextField(10);
         knop = new Button("Enter");
         reset = new Button("Reset");
@@ -35,9 +37,60 @@ public class PraktijkOpdracht extends Applet {
     }
 
     public void paint(Graphics g) {
+        int teller1 = 2, teller2 = 3, teller3 = 3, teller4 = 3, teller5 = 3, teller6 = 3;
+        int x = -30;
+
         g.drawString("Don't eat the last piece of cake or you'll have to buy a new one.", 20, 40);
         g.drawString("" + barf, 20, 60);
         g.drawString("" + blergh, 20, 80);
+
+        while(teller6 >= 0) {
+            x += 50;
+            g.drawImage(afbeelding, x, 100, 50, 50, this);
+            teller6 --;
+        }
+
+        x = -30;
+
+        while(teller5 >= 0) {
+            x += 50;
+            g.drawImage(afbeelding, x, 150, 50, 50, this);
+            teller5 --;
+        }
+
+        x = -30;
+
+        while(teller4 >= 0) {
+
+            x += 50;
+            g.drawImage(afbeelding, x, 200, 50, 50, this);
+            teller4 --;
+        }
+
+        x = -30;
+
+        while(teller3 >= 0) {
+
+            x += 50;
+            g.drawImage(afbeelding, x, 250, 50, 50, this);
+            teller3 --;
+        }
+
+        x = -30;
+
+        while (teller2 >= 0) {
+            x += 50;
+            g.drawImage(afbeelding, x, 300, 50, 50, this);
+            teller2 --;
+        }
+
+        x = -30;
+
+        while(teller1 >= 0) {
+            x += 50;
+            g.drawImage(afbeelding, x, 350, 50, 50, this);
+            teller1 --;
+        }
 
     }
 
