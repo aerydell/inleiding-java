@@ -3,9 +3,11 @@ package h14;
 import java.awt.*;
 import java.applet.*;
 import java.awt.event.*;
+import java.awt.image.ImageObserver;
 import java.net.URL;
 
 public class PraktijkOpdracht extends Applet {
+
     int taartPunten, gegeten, computer;
     String barf, blergh;
     TextField tekstvak;
@@ -13,17 +15,24 @@ public class PraktijkOpdracht extends Applet {
     double random;
     private URL pad;
     private AudioClip scream, applause;
-    private Image afbeelding;
+    private Image afbeelding, afbeeldinglost, afbeeldingwon;
+    boolean playerLost;
+    boolean playerWon;
 
     public void init() {
+        playerLost = false;
+        playerWon = false;
+        setSize(400,400);
         barf = "";
         random = Math.random();
         taartPunten = 23;
         blergh = "there are still " + taartPunten + " pieced left";
-        pad = KnopListener.class.getResource("/h14/");
+        pad = KnopListener.class.getResource("/h14/SoundsAndPhotos/");
         scream = getAudioClip(pad, "scream1.wav");
         applause = getAudioClip(pad, "applause.wav");
-        afbeelding = getImage(pad, "taartpuntje.gif");
+        afbeelding = getImage(pad, "taartpunt.jpg");
+        afbeeldinglost = getImage(pad, "you lost.jpg");
+        afbeeldingwon = getImage(pad, "you won.jpg");
         tekstvak = new TextField(10);
         knop = new Button("Enter");
         reset = new Button("Reset");
@@ -37,78 +46,56 @@ public class PraktijkOpdracht extends Applet {
     }
 
     public void paint(Graphics g) {
-        int teller1 = 2, teller2 = 3, teller3 = 3, teller4 = 3, teller5 = 3, teller6 = 3;
         int x = -30;
+        int y = 100;
 
         g.drawString("Don't eat the last piece of cake or you'll have to buy a new one.", 20, 40);
         g.drawString("" + barf, 20, 60);
         g.drawString("" + blergh, 20, 80);
 
-        while(teller6 >= 0) {
-            x += 50;
-            g.drawImage(afbeelding, x, 100, 50, 50, this);
-            teller6 --;
+
+        if (!playerLost && !playerWon) {
+            for (int i = 0; i < taartPunten; i++) {
+                x += 50;
+                g.drawString(pad.toString(), 0, -10);
+                g.drawImage(afbeelding, x, y, 50, 50, this);
+                if (x == 170) {
+                    x = -30;
+                    y += 50;
+                }
+            }
         }
-
-        x = -30;
-
-        while(teller5 >= 0) {
-            x += 50;
-            g.drawImage(afbeelding, x, 150, 50, 50, this);
-            teller5 --;
+        else {
+            if (playerLost) {
+                g.drawImage(afbeeldinglost, 20, 100, 100, 100, this);
+                scream.play();
+            }
+            else {
+                g.drawImage(afbeeldingwon, 20, 100, 100, 100, this);
+                applause.play();
+            }
         }
-
-        x = -30;
-
-        while(teller4 >= 0) {
-
-            x += 50;
-            g.drawImage(afbeelding, x, 200, 50, 50, this);
-            teller4 --;
-        }
-
-        x = -30;
-
-        while(teller3 >= 0) {
-
-            x += 50;
-            g.drawImage(afbeelding, x, 250, 50, 50, this);
-            teller3 --;
-        }
-
-        x = -30;
-
-        while (teller2 >= 0) {
-            x += 50;
-            g.drawImage(afbeelding, x, 300, 50, 50, this);
-            teller2 --;
-        }
-
-        x = -30;
-
-        while(teller1 >= 0) {
-            x += 50;
-            g.drawImage(afbeelding, x, 350, 50, 50, this);
-            teller1 --;
-        }
-
     }
+
+
 
     class KnopListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            playerWon = false;
+            playerLost = false;
             gegeten = Integer.parseInt(tekstvak.getText());
 
             if (gegeten > 0 && gegeten < 4) {
                 taartPunten = taartPunten - gegeten;
             }
             if (taartPunten <= 0) {
-                blergh = "pffffff, you can't even beat a computer...";
-                scream.play();
+                blergh = "muhuhahahahahahaha you lost...";
+                playerLost = true;
             }
             if (taartPunten == 1) {
-                blergh = "Congratulations, you have beaten a computer.....";
-                applause.play();
+                blergh = "Congratulations....... you have beaten a computer.....";
+                playerWon = true;
             }
             if (taartPunten == 2 || taartPunten == 6 || taartPunten == 10 || taartPunten == 14 || taartPunten == 18 || taartPunten == 22) {
                 computer = 1;
@@ -135,7 +122,7 @@ public class PraktijkOpdracht extends Applet {
                 taartPunten = taartPunten - computer;
                 barf = "the computer has removed " + computer + " slices";
             } else if (taartPunten == 13) {
-                computer = (int) (random * 2 + 1);
+                computer = (int) (random * 3 + 1);
                 taartPunten = taartPunten - computer;
                 barf = "the computer has removed " + computer + " slices";
                 blergh = "There are now " + taartPunten + " pieces left";
@@ -152,6 +139,8 @@ public class PraktijkOpdracht extends Applet {
             }
             else if(gegeten <= 0 || gegeten >= 4) {
                 barf = "please enter a valid number";
+                computer = 0;
+                taartPunten = taartPunten - computer;
             }
             repaint();
         }
@@ -164,6 +153,8 @@ public class PraktijkOpdracht extends Applet {
             taartPunten = 23;
             barf = "";
             blergh = "there are still " + taartPunten + " pieced left";
+            playerLost = false;
+            playerWon = false;
             repaint();
         }
     }
