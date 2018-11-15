@@ -9,6 +9,8 @@ public class Part2 extends Applet {
     double order, daytotal;
 
     public void init() {
+        this.setLayout(null);
+        setSize(250, 300);
         soda = new Button("Soda");
         beer = new Button("Beer");
         wine = new Button("Wine");
@@ -30,18 +32,18 @@ public class Part2 extends Applet {
         domedist.addActionListener(dl);
         fordist.addActionListener(fl);
         neworder.addActionListener(nl);
-        add(soda);
-        add(beer);
-        add(wine);
-        add(coffee);
-        add(domedist);
-        add(fordist);
-        add(neworder);
+        add(soda).setBounds(20,20,50,20);
+        add(beer).setBounds(70,20,50,20);
+        add(wine).setBounds(120,20,50,20);
+        add(coffee).setBounds(170,20,50,20);
+        add(domedist).setBounds(40,50,75,20);
+        add(fordist).setBounds(125,50,75,20);
+        add(neworder).setBounds(80, 80, 80, 20);
     }
 
     public void paint(Graphics g) {
-        g.drawString("order total: €" + order, 20, 80);
-        g.drawString("Total today: €" + daytotal, 20, 100);
+        g.drawString("order total: €" + order, 70, 150);
+        g.drawString("Total today: €" + daytotal, 70, 170);
     }
 
     class SodaListener implements ActionListener {
