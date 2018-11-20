@@ -5,7 +5,7 @@ import java.applet.*;
 import java.awt.event.*;
 import java.net.URL;
 
-public class Test extends Applet{
+public class Part5 extends Applet{
 
     Button play, buy;
     private URL pad;
