@@ -3,7 +3,6 @@ package h14;
 import java.awt.*;
 import java.applet.*;
 import java.awt.event.*;
-import java.awt.image.ImageObserver;
 import java.net.URL;
 
 public class PraktijkOpdracht extends Applet {

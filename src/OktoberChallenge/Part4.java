@@ -20,10 +20,18 @@ public class Part4 extends Applet{
         add(label);
         add(tekstvak);
         add(knop);
+        tokio = "";
+        london = "";
+        chihuahua = "";
+        melbourne = "";
     }
 
     public void paint(Graphics g) {
         g.drawString("" + tokio, 20, 40 );
+        g.drawString("" + london, 20, 60);
+        g.drawString("" + melbourne, 20, 80);
+        g.drawString("" + chihuahua, 20, 100);
+
 
     }
 
@@ -58,10 +66,13 @@ public class Part4 extends Applet{
                 }
             }
             else{
-                "wrong input, please typ in a number between 0 and 23";
+                tokio = "wrong input, please typ in a number between 0 and 23";
             }
             tokio = "The time in Tokio is: " + tijdTokio + ":00";
-            chihuahua = ""
+            chihuahua = "The time in Chihuahua is: " + tijdChihuahua + ":00";
+            london = "The time in London is: " + tijdLondon + ":00";
+            melbourne = "The time in Melbourne is: " +tijdMelbourne + ":00";
+            repaint();
         }
     }
 }
